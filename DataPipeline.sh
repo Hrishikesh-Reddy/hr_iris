@@ -19,7 +19,8 @@ STORED AS TEXTFILE
 LOCATION '/user/bigdatacloudxlab27228/hdfs_iris_landing/'
 TBLPROPERTIES ('skip.header.line.count'='1');
 "
-# PySpark operations
+
+
 pyspark_commands=$(cat <<'END_PYSPARK_COMMANDS'
 from pyspark.sql import SparkSession
 spark = SparkSession.builder \
