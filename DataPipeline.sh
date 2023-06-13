@@ -1,5 +1,4 @@
-#!/bin/bash
-# Run Hive code
+
 hive -e "
 drop database if exists hr_iris_landing cascade;
 create database hr_iris_landing;
@@ -19,7 +18,8 @@ STORED AS TEXTFILE
 LOCATION '/user/bigdatacloudxlab27228/hdfs_iris_landing/'
 TBLPROPERTIES ('skip.header.line.count'='1');
 "
-# PySpark operations
+
+
 pyspark_commands=$(cat <<'END_PYSPARK_COMMANDS'
 from pyspark.sql import SparkSession
 spark = SparkSession.builder \
@@ -35,8 +35,8 @@ spark.stop()
 END_PYSPARK_COMMANDS
 )
 echo "$pyspark_commands" | pyspark
-# Run SQL code using MySQL command-line tool
-# mysql -u username -p -D database_name <<EOF
+
+
 mysql_commands=$(cat <<'END_MYSQL_COMMANDS'
 use sqoopex;
 DROP TABLE IF EXISTS iris;
