@@ -1,5 +1,4 @@
-#!/bin/bash
-# Run Hive code
+
 hive -e "
 drop database if exists hr_iris_landing cascade;
 create database hr_iris_landing;
@@ -36,8 +35,8 @@ spark.stop()
 END_PYSPARK_COMMANDS
 )
 echo "$pyspark_commands" | pyspark
-# Run SQL code using MySQL command-line tool
-# mysql -u username -p -D database_name <<EOF
+
+
 mysql_commands=$(cat <<'END_MYSQL_COMMANDS'
 use sqoopex;
 DROP TABLE IF EXISTS iris;
